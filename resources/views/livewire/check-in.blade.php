@@ -32,7 +32,7 @@
                     Check
                 </a>
             @else
-                <x-reg-button wire:navigate wire:click="store" varient="primary" class="bg-[#5b5340]">
+                <x-reg-button wire:click="store" varient="primary" class="bg-[#5b5340]">
                     Check-in
                 </x-reg-button>
             @endif

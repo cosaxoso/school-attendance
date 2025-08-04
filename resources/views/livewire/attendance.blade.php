@@ -17,8 +17,14 @@
                 @foreach ($entries as $entry)
                     <tr class="border-b text-white border-white bg-[#6d8055] border-b border-white">
                         <td scope="col" class="px-6 py-4 ">{{$entry->time}}</td>
-                        <td scope="col" class="px-6 py-4">{{$entry->date}}</td>
-                        <td scope="col" class="px-6 py-4">{{$entry->present}}</td>
+                        <td scope="col" class="px-6 py-4">{{$entry->date->format('M d, Y')}}</td>
+                        <td scope="col" class="px-6 py-4">
+                            @if($entry->present)
+                                <span class="text-green-400">Present</span>
+                            @else
+                                <span class="text-red-400">Absent</span>
+                            @endif
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

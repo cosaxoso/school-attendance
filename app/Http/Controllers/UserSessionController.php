@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 
-class UserSessionController
+class UserSessionController extends Controller
 {
     public function index(){
         return view('auth.login');
@@ -22,7 +22,7 @@ class UserSessionController
 
         //attempt to log user in 
         if (!Auth::attempt($attributes)){
-            throw ValidationException::withMessages(['email'=> 'Sorry, those credentials do not match']);
+            throw ValidationException::withMessages(['password' => 'Wrong credentials']);
         };
         
         //regenerate the session token
